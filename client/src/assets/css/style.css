@@ -1,0 +1,89 @@
+@import url(https://fonts.googleapis.com/css?family=Lora);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background-image: url(../images/texture.webp);
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: Lora;
+}
+p {
+    font-family: Roboto;
+    font-size: large;
+}
+span {
+    font-family: Roboto;
+    font-size: large;
+}
+button{
+    font-family: Roboto; 
+}
+.Nav{
+    background-color: #437393;
+}
+.bold{
+    font-weight: bolder;
+}
+.labelStyling {
+    font-weight: bolder;
+    margin-bottom: 0rem;
+    margin-top: 8px;
+}
+.inputStyling {
+    box-sizing: border-box;
+    width: 98%;
+    height: 35px;
+    background: rgba(51, 52, 57, 0.1);
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding-left: 10px;
+}
+input:focus {
+    background-color: white;
+}
+.progressHead {
+    font-family: Lora;
+    border-bottom: 2px solid #d3d3d3;
+    border-top: 2px solid #d3d3d3;
+    background-color: white;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+
+}
+.progressBody {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: white;
+    border-bottom: 2px solid #d3d3d3;
+    text-align: center;
+}
+.profile{
+    background-color: #437393;
+}
+.errorMessage {
+    color: red;
+    font-style: italic;
+    font-size: smaller;
+    display: none;
+}
+  
+input:invalid[focused="true"] {
+    border: 1px solid red;
+}
+input:invalid[focused="true"] ~ span {
+    display: block;
+}
+.bmi{
+    background-color: #437393;
+    font-weight: bolder;
+}
+.macros{
+    background-color: #e26262;
+    font-weight: bolder;
+}
+
