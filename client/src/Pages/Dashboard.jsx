@@ -110,7 +110,9 @@ const Dashboard = () => {
             <p>Achieved</p>
           </Col>
           <Col>
-            <button className="btn btn-secondary">Breakfast 200 | X</button>
+            <button className="btn btn-secondary btn-sm">
+              Breakfast 200 | X
+            </button>
           </Col>
         </Row>
       </Container>

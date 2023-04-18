@@ -10,15 +10,20 @@ const fetchMacros = async (req, res) => {
 };
 const fetchMacrosByDate = async (req, res) => {
   try {
-    const macros = await Macro.findAll({
-      attributes: [
-        "createdAt",
-        "meal_type",
-        [sequelize.fn("sum", sequelize.col("calories")), "total_calories"],
-      ],
-      group: [sequelize.fn("DATE", sequelize.col("createdAt")), "meal_type"],
-      order: [["createdAt", "ASC"]],
-    });
+    const macros = await Macros.aggregate([
+      {
+        $group: {
+          _id: {
+            $dateToString: { format: "%Y-%m-%d", date: "$createdAt" },
+          },
+          meal_type: "$meal_type",
+          total_calories: { $sum: "$calories" },
+        },
+      },
+      {
+        $sort: { _id: 1 },
+      },
+    ]);
 
     if (macros.length === 0) {
       return res.status(404).json({ message: "No macros found" });

@@ -3,10 +3,9 @@ const mongoose = require("mongoose");
 const macrosSchema = new mongoose.Schema(
   {
     calories: {
-      type: String,
+      type: Number,
       required: [true, "Please enter your calories"],
       maxlength: 20,
-      trim: true,
     },
     meal_type: {
       type: String,
