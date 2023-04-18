@@ -2,9 +2,8 @@ import Nav from "../Components/Nav";
 import { Container, Row, Col } from "react-bootstrap";
 import InputForm from "../Components/inputForm";
 import MacroStore from "../stores/MacroStore";
-import axios from "axios";
 
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect } from "react";
 
 const Dashboard = () => {
   const store = MacroStore();
@@ -21,16 +20,12 @@ const Dashboard = () => {
     window.location.reload();
   };
 
-  const [macros, setMacros] = useState([]);
-
   useEffect(() => {
-    axios
-      .get("http://localhost:4000/api/v1/macrosDate", {
-        withCredentials: true,
-      })
-      .then((response) => setMacros(response.data))
-      .catch((error) => console.error(error));
-  }, []);
+    store.fetchMacros();
+  }, [store]);
+  if (!store.macros) {
+    return <div>Loading...</div>;
+  }
   return (
     <Fragment>
       <Nav />
@@ -69,11 +64,12 @@ const Dashboard = () => {
         </form>
       </Container>
       <wbr />
-      {macros.map((macro) => (
+      {store.macros.map((macro) => (
         <Container fluid className="bg-white mt-4 p-3 rounded" key={macro._id}>
           <h3 className="mt-1">Progress</h3>
           <Row>
             <Col>
+              {/* still not working*/}
               <label className="labelStyling">Show:</label>
               <select className="inputStyling mb-3">
                 <option value="all">show all</option>
@@ -81,15 +77,8 @@ const Dashboard = () => {
                 <option value="month">this month</option>
               </select>
             </Col>
-            <Col>
-              {/*<p className="text-center">Your BMI is: 25.7</p>
-            <p className="text-center">Macros: 2183.91</p>*/}
-            </Col>
-            <Col>
-              {/*<p className="text-center">
-              Suggested Macros to get in shape: 1900.82
-            </p>*/}
-            </Col>
+            <Col></Col>
+            <Col></Col>
           </Row>
           <Row className="mt-5 progressHead">
             <Col>

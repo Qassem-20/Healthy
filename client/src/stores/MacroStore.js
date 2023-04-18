@@ -6,11 +6,11 @@ const MacroStore = create((set) => ({
   macro: null,
   fetchMacros: async () => {
     // Fetch the macros
-    const res = await axios.get("http://localhost:4000/api/v1/macros", {
+    const res = await axios.get("http://localhost:4000/api/v1/macrosDate", {
       withCredentials: true,
     });
     // Set to state
-    set({ macros: res.data.macro });
+    set({ macros: res.data });
   },
 
   deleteMacro: async (_id) => {
