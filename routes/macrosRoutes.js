@@ -6,7 +6,7 @@ const requireAuth = require("../middleWares/requireAuth.js");
 //exports from the controller
 const {
   fetchMacros,
-  fetchMacrosByDate,
+  getAllMacrosGroupedByDate,
   addMacros,
   updateMacro,
   deleteMacro,
@@ -15,7 +15,7 @@ const {
 router.route("/macros").get(fetchMacros);
 
 //(get) All macros sorted by date
-router.route("/macrosDate").get(fetchMacrosByDate);
+router.route("/macrosDate").get(getAllMacrosGroupedByDate);
 
 // (Post) add macro
 router.route("/macros/addMacros").post(requireAuth, addMacros);

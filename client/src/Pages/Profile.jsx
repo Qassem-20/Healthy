@@ -102,7 +102,7 @@ const Profile = () => {
                   />
                   <label className="labelStyling">Sex:</label>
                   <select
-                    className="inputStyling"
+                    className="inputStyling mb-3"
                     name="sex"
                     defaultValue={store.updateProfile.sex}
                     onChange={store.handleUpdate}
@@ -111,7 +111,7 @@ const Profile = () => {
                     <option value="male">male</option>
                     <option value="female">female</option>
                   </select>
-                  <label className="labelStyling mt-1">Activity level:</label>
+                  <label className="labelStyling">Activity level:</label>
                   <select
                     className="inputStyling"
                     name="activity_level"

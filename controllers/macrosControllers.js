@@ -8,7 +8,7 @@ const fetchMacros = async (req, res) => {
     return res.sendStatus(400);
   }
 };
-const fetchMacrosByDate = async (req, res) => {
+const getAllMacrosGroupedByDate = async (req, res) => {
   try {
     const macros = await Macros.aggregate([
       {
@@ -16,25 +16,26 @@ const fetchMacrosByDate = async (req, res) => {
           _id: {
             $dateToString: { format: "%Y-%m-%d", date: "$createdAt" },
           },
-          meal_type: "$meal_type",
-          total_calories: { $sum: "$calories" },
+          macros: {
+            $push: {
+              _id: "$_id",
+              calories: "$calories",
+              meal_type: "$meal_type",
+              createdAt: "$createdAt",
+            },
+          },
         },
       },
       {
-        $sort: { _id: 1 },
+        $sort: {
+          _id: -1,
+        },
       },
     ]);
-
-    if (macros.length === 0) {
-      return res.status(404).json({ message: "No macros found" });
-    }
-
-    res.status(200).json(macros);
-  } catch (error) {
-    console.error(error);
-    res
-      .status(500)
-      .json({ message: "An error occurred while fetching macros" });
+    res.json(macros);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Internal server error" });
   }
 };
 const addMacros = async (req, res) => {
@@ -90,7 +91,7 @@ const deleteMacro = async (req, res) => {
 
 module.exports = {
   fetchMacros,
-  fetchMacrosByDate,
+  getAllMacrosGroupedByDate,
   addMacros,
   updateMacro,
   deleteMacro,

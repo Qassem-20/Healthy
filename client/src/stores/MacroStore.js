@@ -17,14 +17,8 @@ const MacroStore = create((set) => ({
     await axios.delete("http://localhost:4000/api/v1/macros/" + _id, {
       withCredentials: true,
     });
-
-    const { macros } = MacroStore.getState();
-
     //update page;
-    const newMacros = [...macros].filter((macro) => {
-      return macro._id !== _id;
-    });
-    set({ macro: newMacros });
+    window.location.reload();
   },
 
   updateStatue: {

@@ -14,11 +14,6 @@ const macrosSchema = new mongoose.Schema(
       maxlength: 20,
       default: "",
     },
-    date: {
-      type: String,
-      required: [false, "Please enter the date"],
-      maxlength: 30,
-    },
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
