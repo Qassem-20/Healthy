@@ -24,33 +24,34 @@ const Progress = () => {
   }
   return (
     <Fragment>
-      {store.macros.map((macro) => (
-        <Container fluid className="bg-white mt-4 p-3 rounded" key={macro._id}>
-          <h3 className="mt-1">Progress</h3>
-          <Row>
-            <Col>
-              {/* still not working*/}
               <label className="labelStyling">Show:</label>
-              <select className="inputStyling mb-3">
-                <option value="all">show all</option>
-                <option value="week">this week</option>
-                <option value="month">this month</option>
-              </select>
-            </Col>
-            <Col></Col>
-            <Col></Col>
-          </Row>
-          <Row className="mt-5 progressHead">
-            <Col>
-              <p>Date</p>
-            </Col>
-            <Col>
-              <p>Consumed Calories</p>
-            </Col>
-            <Col>
-              <p>Added Macros</p>
-            </Col>
-          </Row>
+      <Container fluid className="bg-white mt-4 p-3 rounded" key={macro._id}>
+        <h3 className="mt-1">Progress</h3>
+        <Row>
+          <Col>
+            {/* still not working*/}
+            <label className="labelStyling">Show:</label>
+            <select className="inputStyling mb-3">
+              <option value="all">show all</option>
+              <option value="week">this week</option>
+              <option value="month">this month</option>
+            </select>
+          </Col>
+          <Col></Col>
+          <Col></Col>
+        </Row>
+        <Row className="mt-5 progressHead">
+          <Col>
+            <p>Date</p>
+          </Col>
+          <Col>
+            <p>Consumed Calories</p>
+          </Col>
+          <Col>
+            <p>Added Macros</p>
+          </Col>
+        </Row>
+        {store.macros.map((macro) => (
           <Row className="progressBody">
             <Col>
               <p>{macro._id}</p>
@@ -70,8 +71,8 @@ const Progress = () => {
               ))}
             </Col>
           </Row>
-        </Container>
-      ))}
+        ))}
+      </Container>
     </Fragment>
   );
 };
