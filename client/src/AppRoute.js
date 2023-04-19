@@ -33,7 +33,9 @@ const AppRoute = () => {
         </Route>
 
         <Route path="/dashboard">
-          <Dashboard />
+          <RequireAuthUser>
+            <Dashboard />
+          </RequireAuthUser>
         </Route>
       </Switch>
     </Fragment>

@@ -22,7 +22,7 @@ const {
   updateUser,
 } = require("../controllers/userControllers.js");
 
-// auth / register / login / loguot - (post and get)
+// auth / register / login / logout - (post and get)
 router.route("/registerUser").post(apiLimiter, registerUser);
 router.route("/loginUser").post(apiLimiter, loginUser);
 router.route("/checkAuthUser").get(requireAuth, checkAuthUser);

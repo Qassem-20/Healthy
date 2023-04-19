@@ -10,7 +10,11 @@ const fetchMacros = async (req, res) => {
 };
 const getAllMacrosGroupedByDate = async (req, res) => {
   try {
+    const userId = req.user._id;
     const macros = await Macros.aggregate([
+      {
+        $match: { user: userId },
+      },
       {
         $group: {
           _id: {
@@ -24,6 +28,7 @@ const getAllMacrosGroupedByDate = async (req, res) => {
               createdAt: "$createdAt",
             },
           },
+          totalCalories: { $sum: "$calories" },
         },
       },
       {

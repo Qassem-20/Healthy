@@ -24,14 +24,12 @@ const MacroStore = create((set) => ({
   updateStatue: {
     _id: null,
     meal_type: "",
-    date: "",
     calories: "",
   },
-  toggleUpdate: ({ _id, meal_type, date, calories }) => {
+  toggleUpdate: ({ _id, meal_type, calories }) => {
     set({
       updateStatue: {
         meal_type,
-        date,
         calories,
         _id,
       },
@@ -39,7 +37,7 @@ const MacroStore = create((set) => ({
   },
   updateMacro: async () => {
     const {
-      updateStatue: { meal_type, date, calories, _id },
+      updateStatue: { meal_type, calories, _id },
     } = MacroStore.getState();
 
     // Send the update request
@@ -47,7 +45,6 @@ const MacroStore = create((set) => ({
       `http://localhost:4000/api/v1/macros/${_id}`,
       {
         meal_type,
-        date,
         calories,
       },
       { withCredentials: true }
@@ -57,7 +54,6 @@ const MacroStore = create((set) => ({
       updateStatue: {
         _id: null,
         meal_type: "",
-        date: "",
         calories: "",
       },
     });
@@ -65,7 +61,6 @@ const MacroStore = create((set) => ({
 
   values: {
     meal_type: "",
-    date: "",
     calories: "",
   },
 
@@ -79,7 +74,6 @@ const MacroStore = create((set) => ({
     set({
       values: {
         meal_type: "",
-        date: "",
         calories: "",
       },
     });

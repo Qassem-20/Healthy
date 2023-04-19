@@ -15,7 +15,7 @@ const {
 router.route("/macros").get(fetchMacros);
 
 //(get) All macros sorted by date
-router.route("/macrosDate").get(getAllMacrosGroupedByDate);
+router.route("/macrosDate").get(requireAuth, getAllMacrosGroupedByDate);
 
 // (Post) add macro
 router.route("/macros/addMacros").post(requireAuth, addMacros);
