@@ -24,7 +24,6 @@ const Progress = () => {
   }
   return (
     <Fragment>
-              <label className="labelStyling">Show:</label>
       <Container fluid className="bg-white mt-4 p-3 rounded" key={macro._id}>
         <h3 className="mt-1">Progress</h3>
         <Row>
