@@ -24,7 +24,7 @@ const Progress = () => {
   }
   return (
     <Fragment>
-      <Container fluid className="bg-white mt-4 p-3 rounded" key={macro._id}>
+      <Container fluid className="bg-white mt-4 p-3 rounded">
         <h3 className="mt-1">Progress</h3>
         <Row>
           <Col>
@@ -51,7 +51,7 @@ const Progress = () => {
           </Col>
         </Row>
         {store.macros.map((macro) => (
-          <Row className="progressBody">
+          <Row className="progressBody" key={macro._id}>
             <Col>
               <p>{macro._id}</p>
             </Col>
