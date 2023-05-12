@@ -5,8 +5,16 @@
 }
 {
     backend runned on PORT = 4000
-    frontend runned on PORT = 8080
+    frontend runned on PORT = 3000
 }
-- if you want to run it in your local machine (just install) in terminal:
-sudo npm  install -g nodemon
+
 - i used React Router v5
+
+- click (cmd + j) to view terminal
+
+- if you want to run it in your local machine (just install) in terminal:
+// make sure to write this command before run it
+sudo npm  install -g nodemon
+
+// to run the program
+nodemon server 

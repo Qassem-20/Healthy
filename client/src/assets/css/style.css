@@ -86,4 +86,6 @@ input:invalid[focused="true"] ~ span {
     background-color: #e26262;
     font-weight: bolder;
 }
-
+.hide{
+    display: none;
+}

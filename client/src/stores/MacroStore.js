@@ -6,17 +6,13 @@ const MacroStore = create((set) => ({
   macro: null,
   fetchMacros: async () => {
     // Fetch the macros
-    const res = await axios.get("http://localhost:4000/api/v1/macrosDate", {
-      withCredentials: true,
-    });
+    const res = await axios.get("/api/v1/macrosDate", {withCredentials:true});
     // Set to state
     set({ macros: res.data });
   },
 
   deleteMacro: async (_id) => {
-    await axios.delete("http://localhost:4000/api/v1/macros/" + _id, {
-      withCredentials: true,
-    });
+    await axios.delete("/api/v1/macros/" + _id, {withCredentials:true});
     //update page;
     window.location.reload();
   },
@@ -42,7 +38,7 @@ const MacroStore = create((set) => ({
 
     // Send the update request
     await axios.put(
-      `http://localhost:4000/api/v1/macros/${_id}`,
+      `/api/v1/macros/${_id}`,
       {
         meal_type,
         calories,
@@ -68,9 +64,7 @@ const MacroStore = create((set) => ({
     const { values } = MacroStore.getState();
 
     // add macro
-    await axios.post("http://localhost:4000/api/v1/macros/addMacros", values, {
-      withCredentials: true,
-    });
+    await axios.post("/api/v1/macros/addMacros", values, {withCredentials:true});
     set({
       values: {
         meal_type: "",

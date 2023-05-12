@@ -38,6 +38,7 @@ const Dashboard = () => {
               value={store.values.meal_type}
               onChange={store.handleChange}
             >
+              <option value="">--Please select--</option>
               <option value="other">other</option>
               <option value="breakfast">breakfast</option>
               <option value="lunch">lunch</option>

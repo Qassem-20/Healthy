@@ -7,12 +7,9 @@ const UserStore = create((set) => ({
 
   fetchUserProfile: async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:4000/api/v1/userProfile",
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await axios.get("/api/v1/userProfile", {
+        withCredentials: true,
+      });
       set({ user: response.data.user });
     } catch (error) {
       console.error(error);
@@ -72,7 +69,7 @@ const UserStore = create((set) => ({
 
     // Send the update request
     await axios.put(
-      `http://localhost:4000/api/v1/users/${_id}`,
+      `/api/v1/users/${_id}`,
       {
         name,
         age,
@@ -103,13 +100,19 @@ const UserStore = create((set) => ({
     name: "",
     email: "",
     password: "",
+    age: "",
+    weight: "",
+    weight_goal: "",
+    height: "",
+    sex: "",
+    activity_level: "",
   },
 
   registerUser: async () => {
     const { values } = UserStore.getState();
 
     // register User
-    await axios.post("http://localhost:4000/api/v1/registerUser", values, {
+    await axios.post("/api/v1/registerUser", values, {
       withCredentials: true,
     });
     set({
@@ -117,6 +120,12 @@ const UserStore = create((set) => ({
         name: "",
         email: "",
         password: "",
+        age: "",
+        weight: "",
+        weight_goal: "",
+        height: "",
+        sex: "",
+        activity_level: "",
       },
     });
   },
@@ -168,7 +177,7 @@ const UserStore = create((set) => ({
   loginUser: async () => {
     const { loginFormUser } = UserStore.getState();
 
-    await axios.post("http://localhost:4000/api/v1/loginUser", loginFormUser, {
+    await axios.post("/api/v1/loginUser", loginFormUser,{
       withCredentials: true,
     });
 
@@ -176,7 +185,7 @@ const UserStore = create((set) => ({
   },
   checkAuth: async () => {
     try {
-      await axios.get("http://localhost:4000/api/v1/checkAuthUser", {
+      await axios.get("/api/v1/checkAuthUser", {
         withCredentials: true,
       });
       set({ loggedIn: true });
@@ -185,7 +194,7 @@ const UserStore = create((set) => ({
     }
   },
   logout: async () => {
-    await axios.get("http://localhost:4000/api/v1/logutConsuemr", {
+    await axios.get("/api/v1/logutConsuemr", {
       withCredentials: true,
     });
     set({ loggedIn: false });

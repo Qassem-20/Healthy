@@ -201,50 +201,48 @@ const WelcomingPage = () => {
               </div>
               <Row>
                 <Col>
-                  <p>
-                    <p className="macros p-2 m-1 rounded">
-                      Suggested Macros:
+                  <div className="macros p-2 m-1 rounded">
+                    Suggested Macros:
+                    <div className="m-0">
+                      Protein:
                       <p className="m-0">
-                        Protein:
-                        <p className="m-0">
-                          {suggestedMacros.protein !== undefined
-                            ? (suggestedMacros.protein * 4).toFixed(0) + " cal"
-                            : ""}
-                        </p>
-                        <p className="m-0">
-                          {suggestedMacros.protein !== undefined
-                            ? suggestedMacros.protein.toFixed(1) + " g"
-                            : ""}
-                        </p>
+                        {suggestedMacros.protein !== undefined
+                          ? (suggestedMacros.protein * 4).toFixed(0) + " cal"
+                          : ""}
                       </p>
                       <p className="m-0">
-                        Fat:
-                        <p className="m-0">
-                          {suggestedMacros.fat !== undefined
-                            ? (suggestedMacros.fat * 9).toFixed(0) + " cal"
-                            : ""}
-                        </p>
-                        <p className="m-0">
-                          {suggestedMacros.fat !== undefined
-                            ? suggestedMacros.fat.toFixed(1) + " g"
-                            : ""}
-                        </p>
+                        {suggestedMacros.protein !== undefined
+                          ? suggestedMacros.protein.toFixed(1) + " g"
+                          : ""}
+                      </p>
+                    </div>
+                    <div className="m-0">
+                      Fat:
+                      <p className="m-0">
+                        {suggestedMacros.fat !== undefined
+                          ? (suggestedMacros.fat * 9).toFixed(0) + " cal"
+                          : ""}
                       </p>
                       <p className="m-0">
-                        Carbs:
-                        <p className="m-0">
-                          {suggestedMacros.carbs !== undefined
-                            ? (suggestedMacros.carbs * 4).toFixed(0) + " cal"
-                            : ""}
-                        </p>
-                        <p className="m-0">
-                          {suggestedMacros.carbs !== undefined
-                            ? suggestedMacros.carbs.toFixed(1) + " g"
-                            : ""}
-                        </p>
+                        {suggestedMacros.fat !== undefined
+                          ? suggestedMacros.fat.toFixed(1) + " g"
+                          : ""}
                       </p>
-                    </p>
-                  </p>
+                    </div>
+                    <div className="m-0">
+                      Carbs:
+                      <p className="m-0">
+                        {suggestedMacros.carbs !== undefined
+                          ? (suggestedMacros.carbs * 4).toFixed(0) + " cal"
+                          : ""}
+                      </p>
+                      <p className="m-0">
+                        {suggestedMacros.carbs !== undefined
+                          ? suggestedMacros.carbs.toFixed(1) + " g"
+                          : ""}
+                      </p>
+                    </div>
+                  </div>
                 </Col>
                 <Col>
                   <p className="bmi p-2 m-1 rounded">

@@ -55,12 +55,12 @@ const SignIn = () => {
               <button className="btn btn-dark mt-2 bold" type="submit">
                 Sign In
               </button>
-              <p className="mt-3">
-                Don’t have an Account? <a href="/signUp">Register</a>
-              </p>
             </div>
           </div>
         </form>
+        <p className="mt-3">
+                Don’t have an Account? <a href="/signUp">Register</a>
+              </p>
       </Container>
     </Fragment>
   );

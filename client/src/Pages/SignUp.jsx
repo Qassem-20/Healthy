@@ -13,11 +13,16 @@ const SignUp = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
+      // added timer to execute {await store.registerUser() ,  if it gets delayed}
+      setTimeout(() => {
+        history.push("/signIn");
+      }, 2000);
+      // 2000 -> waiting for (2sec)
       await store.registerUser();
       history.push("/signIn");
     } catch (err) {
       console.error(err);
-      alert(`${err.response}this email already registered`);
+      alert(`${err.response.data}this email already registered`);
     }
   };
   return (
@@ -26,7 +31,6 @@ const SignUp = () => {
       <Container className="mt-5 bg-white p-4 rounded  justify-content-center">
         <h2>Welcome to Healthy</h2>
         <form onSubmit={handleSignUp}>
-          <div>
             <InputForm
               label="Name:"
               placeholder="Qassem"
@@ -56,10 +60,9 @@ const SignUp = () => {
               pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
               required={true}
             />
-          </div>
-          <button className="btn btn-dark mt-2 bold" type="submit">
-            Sign Up
-          </button>
+            <button className="btn btn-dark mt-2 bold" type="submit">
+              Sign Up
+            </button>
         </form>
         <p className="mt-3">
           Already have an Account? <a href="/signIn">Log In</a>
