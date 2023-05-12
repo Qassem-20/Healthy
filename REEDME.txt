@@ -1,15 +1,3 @@
-{
-    (npm strat) - will run the frontend and backend together
-    (npm run server) - will run the backend 
-    (npm run client) - will run the frontend 
-}
-{
-    backend runned on PORT = 4000
-    frontend runned on PORT = 3000
-}
-
-- i used React Router v5
-
 - click (cmd + j) to view terminal
 
 - if you want to run it in your local machine (just install) in terminal:
@@ -17,4 +5,4 @@
 sudo npm  install -g nodemon
 
 // to run the program
-nodemon server 
+node server 
