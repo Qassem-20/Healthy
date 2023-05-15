@@ -14,7 +14,7 @@ const Progress = () => {
 
   useEffect(() => {
     store.fetchMacros();
-  }, [store]);
+  }, []);
   if (!store.macros) {
     return (
       <div className="bg-white mt-4 p-3 rounded text-center">

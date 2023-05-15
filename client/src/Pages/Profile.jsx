@@ -16,7 +16,7 @@ const Profile = () => {
 
   useEffect(() => {
     store.fetchUserProfile();
-  }, [store]);
+  }, []);
   if (!store.user) {
     return <div>Loading...</div>;
   }

@@ -115,7 +115,7 @@ const WelcomingPage = () => {
           <Row>
             <Col>
               <Container className="d-flex justify-content-center">
-                <img src={Icon} alt="Icon" />
+                <img src={Icon} alt="Icon" className="img-fluid" />
               </Container>
 
               <Container className="d-flex justify-content-center">
